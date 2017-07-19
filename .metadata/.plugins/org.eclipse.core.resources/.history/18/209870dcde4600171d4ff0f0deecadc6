@@ -1,0 +1,94 @@
+//import java.util.Arrays;
+import java.util.Calendar;
+//import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
+public class DateAssignment
+{
+	public static void main(String args[])
+	{
+		
+		String months[] = {"December", "January","February","March","April","May","June","July","August","September"
+				,"October","November", ""};
+		
+		Scanner  input = new Scanner(System.in);
+		int month, year, daysOfWeek;
+		int test = 0;
+	System.out.println("Enter the month:  ");
+	month = input.nextInt();
+	System.out.println("Enter the Year:  ");
+	year = input.nextInt();
+	
+		GregorianCalendar gc = new GregorianCalendar(year,month, 1);
+	
+		
+		daysOfWeek = (gc.get(Calendar.DAY_OF_WEEK));
+		
+		//System.out.println("Day of Week: " + daysOfWeek);
+		//System.out.println("Year:" + gc.get(Calendar.YEAR));
+		
+		System.out.println();
+		System.out.println(months[gc.get(Calendar.MONTH)] + " " + year);
+		System.out.println();
+		System.out.println("Sun \t" + "Mon\t" +"Tue\t" +"Wed\t" +"Thu\t" +"Fri\t" +"Sat\t");
+		 
+		if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month ==10 || month == 12){
+			test = 31;
+		}
+		else if(month == 2){
+			if(year %4 == 0){test = 29;}
+			else{test = 28;}
+		}
+		else {test = 30;}
+		switch (daysOfWeek){
+		
+		case 1: 
+			int i;
+			System.out.print("\t");
+			for(i = 1; i<=test; i++)
+			if ( (i+1) %7!=0){System.out.print(i + "\t");}
+			else {System.out.print(i); System.out.println();}
+			break;
+		case 2: 
+			for(int j=0; j<2; j++){System.out.print("\t");}
+			for(i = 1; i<=test; i++)
+			if ( (i+2) %7!=0){System.out.print(i + "\t");}
+			else {System.out.print(i); System.out.println();}
+			break;
+		case 3: 
+			for(int j=0; j<3; j++){System.out.print("\t");}
+			for(i = 1; i<=test; i++)
+			if ( (i+3) %7!=0){System.out.print(i + "\t");}
+			else {System.out.print(i); System.out.println();}
+			break;
+		case 4: 
+			for(int j=0; j<4; j++){System.out.print("\t");}
+			for(i = 1; i<=test; i++)
+			if ( (i+4) %7!=0){System.out.print(i + "\t");}
+			else {System.out.print(i); System.out.println();}
+			break;
+		case 5: 
+			for(int j=0; j<5; j++){System.out.print("\t");}
+			for(i = 1; i<=test; i++)
+			if ( (i+5) %7!=0){System.out.print(i + "\t");}
+			else {System.out.print(i); System.out.println();}
+			break;
+		case 6: 
+			for(int j=0; j<6; j++){System.out.print("\t");}
+			
+			for(i = 1; i<=test; i++)
+			if ( (i+6) %7!=0){System.out.print(i + "\t");}
+			else {System.out.print(i); System.out.println();}
+			break;
+			
+		case 7:
+			for(i = 1; i<=test; i++)
+			if (i %7!=0){System.out.print(i + "\t");}
+			else {System.out.print(i); System.out.println();}	
+			break;
+			
+		}
+	}
+}
+	

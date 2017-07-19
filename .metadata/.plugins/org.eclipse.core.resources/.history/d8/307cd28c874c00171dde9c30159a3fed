@@ -1,0 +1,39 @@
+package studentDB;
+
+import java.sql.*;
+//import java.util.Scanner;
+import java.util.ArrayList;
+
+public class nationality{  
+	public void prompt(String FName, String LName, ArrayList<String> nationality){  
+		try{  
+			
+			String[] NatArray = new String[nationality.size()];
+			NatArray = nationality.toArray(NatArray);
+			Class.forName("com.mysql.jdbc.Driver");  
+			//System.out.println("Test");
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Student","root","password");  
+			String query = ("INSERT into `Student`.`Nationality`(`StudName`, `StudLast`, `StudNational`) VALUES (?, ?, ?)");
+			String update = ("UPDATE Table SET StudNational=CONCAT(StudNational,NatArray[i]");
+
+			PreparedStatement preparedStmt = con.prepareStatement(query);
+			PreparedStatement preparNational = con.prepareStatement(query);
+			PreparedStatement ps = con.prepareStatement(query);
+			
+			preparedStmt.setString(1, FName);	
+			preparedStmt.setString(2, LName);
+			
+			//preparedStmt.executeUpdate();
+			int i=0;
+			while(i<nationality.size()){
+				ps.setString(1,nationality.get(i));
+				ps.addBatch();
+				i++;
+				}
+				ps.executeBatch();  		
+			System.out.println("Inserted");
+			//input.close();
+			con.close();  
+		}catch(Exception e){ System.out.println(e);}  
+	}  
+}  

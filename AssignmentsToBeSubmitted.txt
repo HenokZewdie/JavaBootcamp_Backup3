@@ -1,0 +1,26 @@
+IPO
+Input: 
+user input
+Integer Values
+UserNumber
+
+Process: 
+Addd 5 to UserNumber
+store to result
+multiply by 2
+store value in result
+subtract 7 from result
+
+output:
+Display result
+prompt for the user number
+
+Algorithm
+1. user Input integer value, store in userNumber
+2. Add 5 to userNumber, store in result
+3. Multoply by 2, store in result
+4. subtract 7 from result
+5. Display result
+
+
+I will work on the othere same as this one
